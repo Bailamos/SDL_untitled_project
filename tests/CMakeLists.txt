@@ -30,5 +30,5 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
   include_directories("${gtest_SOURCE_DIR}/include")
 endif()
 
-add_executable(example test.cpp)
-target_link_libraries(example PUBLIC main_lib gtest_main)
+add_executable(test test.cpp)
+target_link_libraries(test PUBLIC game_lib engine_lib gtest_main)
