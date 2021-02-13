@@ -1,5 +1,5 @@
-#include "collider.hpp"
-#include "point.hpp"
+#include "colliders/collider.hpp"
+#include "math/point.hpp"
 
 class HexagonalCollider : public Collider
 {

@@ -1,4 +1,4 @@
-#include "geometryHelpers.hpp"
+#include "math/geometryHelpers.hpp"
 
 int sign(Point p1, Point p2, Point p3)
 {

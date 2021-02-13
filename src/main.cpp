@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <vector>
-#include "entity.hpp"
-#include "hexagonalCollider.hpp"
+#include "objects/entity.hpp"
+#include "colliders/hexagonalCollider.hpp"
 
 int x = 0;
 

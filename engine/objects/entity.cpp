@@ -1,4 +1,4 @@
-#include "entity.hpp"
+#include "objects/entity.hpp"
 #include <stdio.h>
 
 Entity::Entity(int x, int y)
