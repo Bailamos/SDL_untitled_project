@@ -3,9 +3,11 @@
 
 void Game::initWorld()
 {
-    for (int i = 1; i <= 1; i++)
+    int distance = 0;
+    for (int i = 0; i < 3; i++)
     {
-        Collider *collider = new HexagonalCollider(150 * i, 150, 50);
+        Collider *collider = new HexagonalCollider(150 + (i * distance), 150, 50);
+        distance = collider->getBoundingBox()[1].x - collider->getBoundingBox()[0].x;
         this->world.push_back(collider);
     }
 }
