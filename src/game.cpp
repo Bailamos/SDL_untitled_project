@@ -16,7 +16,19 @@ void Game::start()
 
 void Game::handleInput()
 {
-    //TODO
+    SDL_Event event;
+    while (SDL_PollEvent(&event))
+    {
+        if (event.type == SDL_KEYDOWN)
+        {
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_q:
+                this->mIsGameRunning = false;
+                break;
+            }
+        }
+    }
 }
 
 void Game::update()
@@ -26,6 +38,7 @@ void Game::update()
 
 void Game::render()
 {
+    SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
     SDL_RenderClear(this->renderer);
     for (auto &gameObject : this->gameObjects)
     {
@@ -34,9 +47,6 @@ void Game::render()
     SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, 255);
     SDL_RenderDrawLine(this->renderer, 0, 0, 300, 300);
     SDL_RenderPresent(this->renderer);
-
-    SDL_Delay(3000);
-    this->mIsGameRunning = false;
 }
 
 bool Game::isGameRunning()

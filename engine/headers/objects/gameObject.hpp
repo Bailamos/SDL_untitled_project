@@ -1,5 +1,5 @@
-#include "colliders/collider.hpp"
-#include "math/point.hpp"
+#include "engine/headers/colliders/collider.hpp"
+#include "engine/headers/math/point.hpp"
 
 class GameObject
 {
@@ -13,6 +13,6 @@ public:
 
 private:
     Point position;
-    Collider *collider;
-    SDL_Texture *texture;
+    Collider *collider = NULL;
+    SDL_Texture *texture = NULL;
 };

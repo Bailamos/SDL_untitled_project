@@ -14,4 +14,4 @@ add_library(${MODULE_NAME} STATIC
     objects/gameObject.cpp
     math/geometryHelpers.cpp
 )
-target_include_directories (${MODULE_NAME} PUBLIC headers)
+target_include_directories (${MODULE_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
