@@ -1,5 +1,5 @@
-#include "colliders/hexagonalCollider.hpp"
-#include "math/geometryHelpers.hpp"
+#include "engine/headers/colliders/hexagonalCollider.hpp"
+#include "engine/headers/math/geometryHelpers.hpp"
 #include "math.h"
 
 HexagonalCollider::HexagonalCollider()
@@ -39,7 +39,7 @@ bool HexagonalCollider::isPointInsideCollider(int x, int y)
     return false;
 }
 
-void HexagonalCollider::draw(SDL_Renderer *renderer)
+void HexagonalCollider::render(SDL_Renderer *renderer)
 {
     SDL_FPoint points[7];
     for (int i = 0; i < 6; i++)
