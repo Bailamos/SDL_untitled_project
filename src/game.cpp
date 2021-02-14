@@ -57,7 +57,6 @@ bool Game::isGameRunning()
 Game::Game()
 {
     this->mIsGameRunning = false;
-    this->renderer = renderer;
 
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
