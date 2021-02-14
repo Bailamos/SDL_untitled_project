@@ -29,7 +29,7 @@ void Game::render()
     SDL_RenderClear(this->renderer);
     for (auto &gameObject : this->gameObjects)
     {
-        gameObject->draw(this->renderer);
+        gameObject->render(this->renderer);
     }
     SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, 255);
     SDL_RenderDrawLine(this->renderer, 0, 0, 300, 300);

@@ -27,8 +27,8 @@ void GameObject::onUpdate()
     // TODO;
 }
 
-void GameObject::draw(SDL_Renderer *renderer)
+void GameObject::render(SDL_Renderer *renderer)
 {
     //TODO;
-    this->collider->draw(renderer);
+    this->collider->render(renderer);
 }

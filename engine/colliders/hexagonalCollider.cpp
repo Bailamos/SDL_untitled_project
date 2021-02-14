@@ -39,7 +39,7 @@ bool HexagonalCollider::isPointInsideCollider(int x, int y)
     return false;
 }
 
-void HexagonalCollider::draw(SDL_Renderer *renderer)
+void HexagonalCollider::render(SDL_Renderer *renderer)
 {
     SDL_FPoint points[7];
     for (int i = 0; i < 6; i++)

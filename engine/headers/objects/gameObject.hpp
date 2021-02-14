@@ -9,7 +9,7 @@ public:
     GameObject(int x, int y, Collider *collider, SDL_Texture *texture);
     ~GameObject();
     void onUpdate();
-    void draw(SDL_Renderer *renderer);
+    void render(SDL_Renderer *renderer);
 
 private:
     Point position;

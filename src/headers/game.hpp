@@ -6,7 +6,6 @@ class Game
 public:
     Game();
     void start();
-    void addGameObject(GameObject *gameObject);
     void handleInput();
     void update();
     void render();
