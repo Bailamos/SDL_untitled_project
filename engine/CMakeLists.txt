@@ -11,7 +11,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 add_library(${MODULE_NAME} STATIC
     colliders/hexagonalCollider.cpp
-    objects/entity.cpp
+    objects/gameObject.cpp
     math/geometryHelpers.cpp
 )
 target_include_directories (${MODULE_NAME} PUBLIC headers)
