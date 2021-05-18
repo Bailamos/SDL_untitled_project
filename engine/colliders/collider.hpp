@@ -1,7 +1,7 @@
 #ifndef COLLIDER_H_
 #define COLLIDER_H_
 #include <SDL.h>
-#include "engine/headers/math/point.hpp"
+#include "engine/math/point.hpp"
 
 class Collider
 {

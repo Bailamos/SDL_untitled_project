@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <vector>
-#include "src/headers/game.hpp"
+#include "src/game.hpp"
 
 int x = 0;
 

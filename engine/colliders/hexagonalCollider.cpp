@@ -1,5 +1,5 @@
-#include "engine/headers/colliders/hexagonalCollider.hpp"
-#include "engine/headers/math/geometryHelpers.hpp"
+#include "engine/colliders/hexagonalCollider.hpp"
+#include "engine/math/geometryHelpers.hpp"
 #include "math.h"
 
 HexagonalCollider::HexagonalCollider()

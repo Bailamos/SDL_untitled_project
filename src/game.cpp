@@ -1,14 +1,22 @@
-#include "headers/game.hpp"
+#include "game.hpp"
 #include <stdio.h>
 
 void Game::initWorld()
 {
-    int distance = 0;
-    for (int i = 0; i < 3; i++)
+    int width = 0;
+    int height = 0;
+    for (int row = 0; row < 3; row++)
     {
-        Collider *collider = new HexagonalCollider(150 + (i * distance), 150, 50);
-        distance = collider->getBoundingBox()[1].x - collider->getBoundingBox()[0].x;
-        this->world.push_back(collider);
+        for (int column = 0; column < 3 + row; column++)
+        {
+            Collider *collider = new HexagonalCollider(
+                150 + (column * width) - (row * width / 2),
+                150 + (row * height) - (row * 25),
+                50);
+            width = collider->getBoundingBox()[1].x - collider->getBoundingBox()[0].x;
+            height = collider->getBoundingBox()[1].y - collider->getBoundingBox()[0].y;
+            this->world.push_back(collider);
+        }
     }
 }
 

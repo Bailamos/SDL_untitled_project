@@ -1,6 +1,6 @@
 #include "vector"
-#include "engine/headers/objects/gameObject.hpp"
-#include "engine/headers/colliders/hexagonalCollider.hpp"
+#include "engine/objects/gameObject.hpp"
+#include "engine/colliders/hexagonalCollider.hpp"
 
 class Game
 {

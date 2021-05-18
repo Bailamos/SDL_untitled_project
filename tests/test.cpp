@@ -1,9 +1,10 @@
+#include "engine/math/point.hpp"
+#include "engine/math/geometryHelpers.hpp"
 #include <gtest/gtest.h>
-#include "example.hpp"
 
-TEST(TEST, add)
+TEST(GEOMETRYHELPERS, ShouldReturnTrueIfPointIsInsideTriangle)
 {
-    GTEST_ASSERT_EQ(1, add(1, 1));
+    GTEST_ASSERT_EQ(true, GEOMETRY_HELPERS::isPointInTriangle(Point(1, 1), Point(0, 0), Point(1, 1), Point(0, 1)));
 }
 
 int test(int argc, char *argv[])

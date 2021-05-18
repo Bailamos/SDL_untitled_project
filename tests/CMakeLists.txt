@@ -31,4 +31,4 @@ if (CMAKE_VERSION VERSION_LESS 2.8.11)
 endif()
 
 add_executable(test test.cpp)
-target_link_libraries(test PUBLIC game_lib engine_lib gtest_main)
+target_link_libraries(test PUBLIC engine_lib gtest_main)
