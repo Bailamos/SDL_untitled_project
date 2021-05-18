@@ -1,9 +1,16 @@
 cmake_minimum_required(VERSION 3.19.4)
 
+if(NOT DEFINED BUILD_TESTS)
+    set(BUILD_TESTS False)
+endif()
+
 project (SDL_UNTITLED_PROJECT)
 
 set(SDL2_DIR[PATH_TO_SDL]/x86_64-w64-mingw32/lib/cmake/SDL2)
 
-add_subdirectory (engine)
-add_subdirectory (src)
-# add_subdirectory (tests)
+add_subdirectory(engine)
+add_subdirectory(src)
+
+if(BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
