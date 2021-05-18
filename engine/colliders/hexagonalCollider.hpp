@@ -1,5 +1,5 @@
-#include "engine/headers/colliders/collider.hpp"
-#include "engine/headers/math/point.hpp"
+#include "engine/colliders/collider.hpp"
+#include "engine/math/point.hpp"
 
 class HexagonalCollider : public Collider
 {
@@ -8,8 +8,11 @@ public:
     HexagonalCollider(int centerX, int centerY, int length);
     bool isPointInsideCollider(int x, int y);
     void render(SDL_Renderer *renderer);
+    void renderBoundingBox(SDL_Renderer *renderer);
+    Point *getBoundingBox();
 
 private:
+    Point boundingBox[2];
     int centerX, centerY;
     Point *vertexes;
     int sign(Point p1, Point p2, Point p3);

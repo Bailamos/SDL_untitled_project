@@ -1,5 +1,5 @@
-#include "engine/headers/objects/gameObject.hpp"
-#include "engine/headers/math/point.hpp"
+#include "engine/objects/gameObject.hpp"
+#include "engine/math/point.hpp"
 
 GameObject::GameObject()
 {

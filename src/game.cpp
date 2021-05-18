@@ -1,8 +1,28 @@
-#include "headers/game.hpp"
+#include "game.hpp"
 #include <stdio.h>
+
+void Game::initWorld()
+{
+    int width = 0;
+    int height = 0;
+    for (int row = 0; row < 3; row++)
+    {
+        for (int column = 0; column < 3 + row; column++)
+        {
+            Collider *collider = new HexagonalCollider(
+                150 + (column * width) - (row * width / 2),
+                150 + (row * height) - (row * 25),
+                50);
+            width = collider->getBoundingBox()[1].x - collider->getBoundingBox()[0].x;
+            height = collider->getBoundingBox()[1].y - collider->getBoundingBox()[0].y;
+            this->world.push_back(collider);
+        }
+    }
+}
 
 void Game::start()
 {
+    this->initWorld();
     while (mIsGameRunning)
     {
         this->handleInput();
@@ -40,12 +60,13 @@ void Game::render()
 {
     SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
     SDL_RenderClear(this->renderer);
-    for (auto &gameObject : this->gameObjects)
+    for (auto &collider : this->world)
     {
-        gameObject->render(this->renderer);
+        SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, 255);
+        collider->render(this->renderer);
+        SDL_SetRenderDrawColor(this->renderer, 0, 100, 0, 100);
+        collider->renderBoundingBox(this->renderer);
     }
-    SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, 255);
-    SDL_RenderDrawLine(this->renderer, 0, 0, 300, 300);
     SDL_RenderPresent(this->renderer);
 }
 
@@ -70,6 +91,6 @@ Game::Game()
         printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
         return;
     }
-
+    SDL_SetRenderDrawBlendMode(this->renderer, SDL_BLENDMODE_BLEND);
     this->mIsGameRunning = true;
 }

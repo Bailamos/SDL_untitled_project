@@ -11,7 +11,6 @@ include_directories(${SDL2_INCLUDE_DIRS})
 
 # Add the executable
 add_executable(${PROJECT} main.cpp game.cpp)
-target_link_libraries(${PROJECT} PUBLIC ${ENGINE_LIB}  ${SDL2_LIBRARIES})
-# target_link_libraries(${PROJECT} ${SDL2_LIBRARIES})
+target_link_libraries(${PROJECT} PUBLIC ${ENGINE_LIB} ${SDL2_LIBRARIES})
 
 
