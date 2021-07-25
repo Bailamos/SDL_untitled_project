@@ -1,22 +1,17 @@
-#include "game.hpp"
 #include <stdio.h>
+#include "SDL.h"
+#include "SDL_image.h"
+#include "game.hpp"
+#include "engine/objects/textureType.hpp"
 
 void Game::initWorld()
 {
-    int width = 0;
-    int height = 0;
-    for (int row = 0; row < 3; row++)
+
+    for (int i = 0; i < 1; i++)
     {
-        for (int column = 0; column < 3 + row; column++)
-        {
-            Collider *collider = new HexagonalCollider(
-                150 + (column * width) - (row * width / 2),
-                150 + (row * height) - (row * 25),
-                50);
-            width = collider->getBoundingBox()[1].x - collider->getBoundingBox()[0].x;
-            height = collider->getBoundingBox()[1].y - collider->getBoundingBox()[0].y;
-            this->world.push_back(collider);
-        }
+        SDL_Texture *texture = this->textureLoader->getTexture(Tree);
+        GameObject *gameObject = new GameObject(1, 2, texture);
+        this->gameObjects.push_back(gameObject);
     }
 }
 
@@ -60,12 +55,9 @@ void Game::render()
 {
     SDL_SetRenderDrawColor(this->renderer, 0, 0, 0, 255);
     SDL_RenderClear(this->renderer);
-    for (auto &collider : this->world)
+    for (auto &gameObject : this->gameObjects)
     {
-        SDL_SetRenderDrawColor(this->renderer, 255, 0, 0, 255);
-        collider->render(this->renderer);
-        SDL_SetRenderDrawColor(this->renderer, 0, 100, 0, 100);
-        collider->renderBoundingBox(this->renderer);
+        gameObject->render(this->renderer);
     }
     SDL_RenderPresent(this->renderer);
 }
@@ -78,7 +70,6 @@ bool Game::isGameRunning()
 Game::Game()
 {
     this->mIsGameRunning = false;
-
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
@@ -91,6 +82,23 @@ Game::Game()
         printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
         return;
     }
+
+    if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
+    {
+        printf("SDL_image could not initialize: %s\n", IMG_GetError());
+    }
     SDL_SetRenderDrawBlendMode(this->renderer, SDL_BLENDMODE_BLEND);
+    this->textureLoader = new TextureLoader(this->renderer);
     this->mIsGameRunning = true;
+}
+
+Game::~Game()
+{
+    delete this->textureLoader;
+    SDL_DestroyWindow(this->window);
+    SDL_DestroyRenderer(this->renderer);
+    for (auto gameObject : this->gameObjects)
+    {
+        delete gameObject;
+    }
 }

@@ -59,7 +59,9 @@
         "**/googletest-src": true,
         "lib": true,
         "bin": true,
-        "**/*.a": true
+        "**/*.a": true,
+        "**/*.exe": true,
     },
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
+    "C_Cpp.errorSquiggles": "Enabled"
 }

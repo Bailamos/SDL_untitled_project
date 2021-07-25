@@ -7,6 +7,7 @@ public:
     GameObject();
     GameObject(int x, int y);
     GameObject(int x, int y, Collider *collider, SDL_Texture *texture);
+    GameObject(int x, int y, SDL_Texture *texture);
     ~GameObject();
     void onUpdate();
     void render(SDL_Renderer *renderer);

@@ -1,6 +1,7 @@
 #include "engine/colliders/hexagonalCollider.hpp"
 #include "engine/math/geometryHelpers.hpp"
 #include "math.h"
+#include "SDL_image.h"
 
 HexagonalCollider::HexagonalCollider()
 {
@@ -47,6 +48,7 @@ bool HexagonalCollider::isPointInsideCollider(int x, int y)
 void HexagonalCollider::render(SDL_Renderer *renderer)
 {
     SDL_FPoint points[7];
+
     for (int i = 0; i < 6; i++)
     {
         points[i] = SDL_FPoint();
@@ -64,6 +66,7 @@ void HexagonalCollider::renderBoundingBox(SDL_Renderer *renderer)
     SDL_RenderDrawLine(renderer, boundingBox[1].x, boundingBox[1].y, boundingBox[0].x, boundingBox[1].y);
     SDL_RenderDrawLine(renderer, boundingBox[0].x, boundingBox[1].y, boundingBox[0].x, boundingBox[0].y);
 }
+
 Point *HexagonalCollider::getBoundingBox()
 {
     return this->boundingBox;
