@@ -2,15 +2,14 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "game.hpp"
-#include "engine/objects/textureType.hpp"
+#include "entities/TreeMapTile.hpp"
 
 void Game::initWorld()
 {
 
     for (int i = 0; i < 1; i++)
     {
-        SDL_Texture *texture = this->textureLoader->getTexture(Tree);
-        GameObject *gameObject = new GameObject(1, 2, texture);
+        GameObject *gameObject = new TreeMapTile(64, 64, this->textureLoader);
         this->gameObjects.push_back(gameObject);
     }
 }
