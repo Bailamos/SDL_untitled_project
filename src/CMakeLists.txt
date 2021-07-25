@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.19.4)
 
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_COMPILER "g++")
 set(PROJECT game)
 set(ENGINE_LIB engine_lib)
 
