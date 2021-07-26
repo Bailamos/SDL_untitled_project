@@ -10,7 +10,7 @@ HexagonalCollider::HexagonalCollider()
 HexagonalCollider::HexagonalCollider(int centerX, int centerY, int length)
 {
     vertexes = new Point[6];
-    const int h = sqrt(pow(length / 2, 2) + pow(length, 2));
+    const int h = sqrt(3) * length / 2;
 
     vertexes[0] = Point(centerX, centerY - length);
     vertexes[1] = Point(centerX + h, centerY - (length / 2));
@@ -48,7 +48,7 @@ bool HexagonalCollider::isPointInsideCollider(int x, int y)
 void HexagonalCollider::render(SDL_Renderer *renderer)
 {
     SDL_FPoint points[7];
-
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
     for (int i = 0; i < 6; i++)
     {
         points[i] = SDL_FPoint();
@@ -57,6 +57,7 @@ void HexagonalCollider::render(SDL_Renderer *renderer)
     }
     points[6] = points[0];
     SDL_RenderDrawLinesF(renderer, points, 7);
+    this->renderBoundingBox(renderer);
 }
 
 void HexagonalCollider::renderBoundingBox(SDL_Renderer *renderer)

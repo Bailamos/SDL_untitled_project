@@ -9,7 +9,7 @@ void Game::initWorld()
 
     for (int i = 0; i < 1; i++)
     {
-        GameObject *gameObject = new TreeMapTile(64, 64, this->textureLoader);
+        GameObject *gameObject = new TreeMapTile(400, 300, this->textureLoader);
         this->gameObjects.push_back(gameObject);
     }
 }

@@ -41,6 +41,7 @@ void GameObject::render(SDL_Renderer *renderer)
 {
     SDL_Rect displayRect = getDisplayRect();
     SDL_RenderCopy(renderer, this->texture, NULL, &displayRect);
+    this->collider->render(renderer);
 }
 
 SDL_Rect GameObject::getDisplayRect()
@@ -48,4 +49,9 @@ SDL_Rect GameObject::getDisplayRect()
     int top = this->position.y - height / 2;
     int left = this->position.x - width / 2;
     return {left, top, width, height};
+}
+
+void GameObject::setCollider(Collider *collider)
+{
+    this->collider = collider;
 }

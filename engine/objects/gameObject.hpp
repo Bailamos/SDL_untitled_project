@@ -15,6 +15,7 @@ public:
     void onUpdate();
     void render(SDL_Renderer *renderer);
     SDL_Rect getDisplayRect();
+    void setCollider(Collider *collider);
 
 private:
     Point position;
