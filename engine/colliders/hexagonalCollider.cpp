@@ -10,17 +10,24 @@ HexagonalCollider::HexagonalCollider()
 HexagonalCollider::HexagonalCollider(int centerX, int centerY, int length)
 {
     vertexes = new Point[6];
-    const int h = sqrt(3) * length / 2;
+    this->sideLength = length;
 
-    vertexes[0] = Point(centerX, centerY - length);
-    vertexes[1] = Point(centerX + h, centerY - (length / 2));
-    vertexes[2] = Point(centerX + h, centerY + (length / 2));
-    vertexes[3] = Point(centerX, centerY + length);
-    vertexes[4] = Point(centerX - h, centerY + (length / 2));
-    vertexes[5] = Point(centerX - h, centerY - (length / 2));
+    this->setPosition(centerX, centerY);
+}
 
-    Point boundingBoxTopLeft = Point(centerX - h, centerY - length);
-    Point boundingBoxBottomRight = Point(centerX + h, centerY + length);
+void HexagonalCollider::setPosition(int x, int y)
+{
+    const int h = sqrt(3) * this->sideLength / 2;
+
+    vertexes[0] = Point(x, y - this->sideLength);
+    vertexes[1] = Point(x + h, y - (this->sideLength / 2));
+    vertexes[2] = Point(x + h, y + (this->sideLength / 2));
+    vertexes[3] = Point(x, y + this->sideLength);
+    vertexes[4] = Point(x - h, y + (this->sideLength / 2));
+    vertexes[5] = Point(x - h, y - (this->sideLength / 2));
+
+    Point boundingBoxTopLeft = Point(x - h, y - this->sideLength);
+    Point boundingBoxBottomRight = Point(x + h, y + this->sideLength);
     this->boundingBox[0] = boundingBoxTopLeft;
     this->boundingBox[1] = boundingBoxBottomRight;
 }

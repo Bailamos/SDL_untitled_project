@@ -11,7 +11,7 @@ include_directories(${SDL2_INCLUDE_DIRS})
 include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 
 # Add the executable
-add_executable(${PROJECT} main.cpp game.cpp entities/TreeMapTile.cpp)
+add_executable(${PROJECT} main.cpp game.cpp entities/treeMapTile.cpp entities/map.cpp)
 target_link_libraries(${PROJECT} PUBLIC ${ENGINE_LIB} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
 # target_include_directories(${PROJECT} PUBLIC consants.hpp)
 set_target_properties(${PROJECT} PROPERTIES WIN32_EXECUTABLE FALSE)

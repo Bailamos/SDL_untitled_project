@@ -10,8 +10,10 @@ public:
     void render(SDL_Renderer *renderer);
     void renderBoundingBox(SDL_Renderer *renderer);
     Point *getBoundingBox();
+    void setPosition(int x, int y);
 
 private:
+    int sideLength;
     Point boundingBox[2];
     int centerX, centerY;
     Point *vertexes;

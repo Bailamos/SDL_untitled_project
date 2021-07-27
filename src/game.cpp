@@ -2,16 +2,13 @@
 #include "SDL.h"
 #include "SDL_image.h"
 #include "game.hpp"
-#include "entities/TreeMapTile.hpp"
+#include "entities/map.hpp"
+#include "src/constants.hpp"
 
 void Game::initWorld()
 {
-
-    for (int i = 0; i < 1; i++)
-    {
-        GameObject *gameObject = new TreeMapTile(400, 300, this->textureLoader);
-        this->gameObjects.push_back(gameObject);
-    }
+    GameObject *map = new Map(400, 300, this->textureLoader);
+    this->gameObjects.push_back(map);
 }
 
 void Game::start()
@@ -75,7 +72,7 @@ Game::Game()
         return;
     }
 
-    SDL_CreateWindowAndRenderer(800, 600, 0, &window, &renderer);
+    SDL_CreateWindowAndRenderer(SCREEN_WIDTH, SCREEN_HEIGHT, 0, &window, &renderer);
     if (window == NULL)
     {
         printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
