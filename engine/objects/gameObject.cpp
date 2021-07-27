@@ -4,21 +4,23 @@
 
 GameObject::GameObject()
 {
+    this->collider = NULL;
 }
 
-GameObject::GameObject(int x, int y)
+GameObject::GameObject(int x, int y) : GameObject()
 {
+    GameObject();
     this->position = Point(x, y);
 }
 
-GameObject::GameObject(int x, int y, Collider *collider, SDL_Texture *texture)
+GameObject::GameObject(int x, int y, Collider *collider, SDL_Texture *texture) : GameObject()
 {
     this->position = Point(x, y);
     this->collider = collider;
     this->texture = texture;
 }
 
-GameObject::GameObject(int x, int y, int width, int height, SDL_Texture *texture)
+GameObject::GameObject(int x, int y, int width, int height, SDL_Texture *texture) : GameObject()
 {
     this->position = Point(x, y);
     this->width = width;
@@ -72,15 +74,27 @@ void GameObject::setPosition(int x, int y)
 {
     this->position.x = x;
     this->position.y = y;
-    this->collider->setPosition(x, y);
+    if (this->collider != NULL)
+    {
+        this->collider->setPosition(x, y);
+    }
 }
 
 void GameObject::addChildren(GameObject *gameObject)
 {
-    const int newPositionX = this->position.x + gameObject->position.x;
-    const int newPositionY = this->position.y + gameObject->position.y;
-
-    gameObject->setPosition(newPositionX, newPositionY);
-
+    gameObject->setPosition(
+        this->position.x + gameObject->position.x,
+        this->position.y + gameObject->position.y);
+    for (auto children : gameObject->children)
+    {
+        children->setPosition(
+            children->position.x + this->position.x,
+            children->position.y + this->position.y);
+    }
     this->children.push_back(gameObject);
+}
+
+Point GameObject::getPosition()
+{
+    return this->position;
 }

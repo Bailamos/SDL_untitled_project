@@ -4,9 +4,20 @@
 
 Map::Map(int x, int y, TextureLoader *textureLoader) : GameObject(x, y)
 {
-    for (int i = 0; i < 3; i++)
+    for (int j = 1; j <= 4; j++)
     {
-        GameObject *tile = new TreeMapTile(0, 0 - MAP_TILE_HEIGHT * i, textureLoader);
-        this->addChildren(tile);
+        for (int i = 1; i <= 6; i++)
+        {
+            GameObject *tile;
+            if (j % 2 == 0)
+            {
+                tile = new TreeMapTile(i * MAP_TILE_WIDTH - x, j * MAP_TILE_HEIGHT - y, textureLoader);
+            }
+            else
+            {
+                tile = new TreeMapTile(MAP_TILE_WIDTH / 2 + i * MAP_TILE_WIDTH - x, j * MAP_TILE_HEIGHT - y + 30, textureLoader);
+            }
+            this->addChildren(tile);
+        }
     }
 }

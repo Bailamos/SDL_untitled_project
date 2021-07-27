@@ -19,6 +19,7 @@ public:
     void setCollider(Collider *collider);
     void addChildren(GameObject *gameObject);
     void setPosition(int x, int y);
+    Point getPosition();
 
 private:
     Point position;

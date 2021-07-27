@@ -12,5 +12,13 @@
             "cwd": "${workspaceRoot}",
             "preLaunchTask": "DEBUG: Make and Build project"
         },
+        {
+            "name": "Debug Test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/tests/test.exe",
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": "Make, Build project and Run tests"
+        },
     ]
 }
