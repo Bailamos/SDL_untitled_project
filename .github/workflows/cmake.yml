@@ -40,10 +40,10 @@ jobs:
 
     - name: Test
       run: |
-        ${{github.workspace}}/build/output/test --gtest_output=xml:testResults.xml
+        ${{github.workspace}}/build/output/test --gtest_output=xml:build/output/testResults.xml
       
     - name: Publish Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
       with:
-        files: ${{github.workspace}}/**/*.xml
+        files: ${{github.workspace}}/build/output/testResults.xml
