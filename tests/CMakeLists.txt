@@ -35,8 +35,5 @@ find_package(SDL2_image REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 
-target_link_libraries(test SDL2::Main)
-target_link_libraries(test SDL2::Image)
-
 add_executable(test gameObject.cpp)
 target_link_libraries(test PUBLIC engine_lib gtest_main  ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES})
