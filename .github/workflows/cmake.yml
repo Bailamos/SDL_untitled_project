@@ -43,5 +43,5 @@ jobs:
 
     - name: Test
       run: |
-        output/test
+        ${{github.workspace}}/output/test
       
