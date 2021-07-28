@@ -9,6 +9,8 @@ find_package(SDL2 REQUIRED)
 find_package(SDL2_image REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS})
 include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
+target_link_libraries(${PROJECT} SDL2::Main)
+target_link_libraries(${PROJECT} SDL2::Image)
 
 # Add the executable
 add_executable(${PROJECT} main.cpp game.cpp entities/treeMapTile.cpp entities/map.cpp)

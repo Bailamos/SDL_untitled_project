@@ -15,4 +15,6 @@ add_library(${MODULE_NAME} STATIC
     objects/textureLoader.cpp
     math/geometryHelpers.cpp
 )
+target_link_libraries(${MODULE_NAME} SDL2::Main)
+target_link_libraries(${MODULE_NAME} SDL2::Image)
 target_include_directories (${MODULE_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
