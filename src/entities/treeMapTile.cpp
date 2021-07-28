@@ -1,4 +1,4 @@
-#include "TreeMapTile.hpp"
+#include "treeMapTile.hpp"
 #include "engine/objects/textureType.hpp"
 #include "engine/colliders/hexagonalCollider.hpp"
 #include "src/constants.hpp"
