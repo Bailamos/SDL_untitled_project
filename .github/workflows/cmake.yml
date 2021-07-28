@@ -29,7 +29,7 @@ jobs:
 
     - name: copy_cmake
       run: |
-        cp ${{github.workspace}}/.github/workflow/workflow-CMakeLists.txt ${{github.workspace}}/CMakeLists.txt
+        cp ${{github.workspace}}/.github/workflows/workflow-CMakeLists.txt ${{github.workspace}}/CMakeLists.txt
 
     - name: Configure CMake
       # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
