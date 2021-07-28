@@ -30,7 +30,7 @@
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "command": "cmake -DCMAKE_BUILD_TYPE=Debug -G 'MinGW Makefiles' .; mingw32-make.exe; ./output/test.exe",
+            "command": "cmake -DCMAKE_BUILD_TYPE=Debug -G 'MinGW Makefiles' .; mingw32-make.exe; ./output/test.exe --gtest_output=xml:testResults.xml",
             "group": {
                 "kind": "build",
                 "isDefault": true

@@ -63,3 +63,6 @@ test/test_runner
 tests/googletest-build/**
 tests/googletest-download/**
 tests/googletest-src
+
+## Output files
+output
