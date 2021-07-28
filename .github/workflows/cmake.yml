@@ -33,12 +33,9 @@ jobs:
         cp ${{github.workspace}}/.github/workflows/workflow-CMakeLists.txt ${{github.workspace}}/CMakeLists.txt
 
     - name: Configure CMake
-      # Configure CMake in a 'build' subdirectory. `CMAKE_BUILD_TYPE` is only required if you are using a single-configuration generator such as make.
-      # See https://cmake.org/cmake/help/latest/variable/CMAKE_BUILD_TYPE.html?highlight=cmake_build_type
       run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DBUILD_TESTS=True
 
     - name: Build
-      # Build your program with the given configuration
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
     - name: Test
@@ -49,4 +46,4 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
       with:
-        files: ${{github.workspace}}/build/output/*.xml
+        files: /home/runner/work/SDL_untitled_project/SDL_untitled_project/build/output/*.xml
