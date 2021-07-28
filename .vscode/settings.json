@@ -60,8 +60,6 @@
         "lib": true,
         "bin": true,
         "**/*.a": true,
-        "**/*.exe": true,
-        "**/*.dll": true,
     },
     "editor.formatOnSave": true,
     "C_Cpp.errorSquiggles": "Enabled"
