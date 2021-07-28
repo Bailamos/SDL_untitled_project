@@ -46,4 +46,4 @@ jobs:
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
       with:
-        files: /home/runner/work/SDL_untitled_project/SDL_untitled_project/build/output/**/*.xml
+        files: ${{github.workspace}}/**/*.xml
