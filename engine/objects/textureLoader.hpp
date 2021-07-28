@@ -1,7 +1,7 @@
 #ifndef TEXTURELOADER_H
 #define TEXTURELOADER_H
 
-#include <SDL.H>
+#include <SDL.h>
 #include <SDL_image.h>
 #include <map>
 #include "engine/objects/textureType.hpp"
