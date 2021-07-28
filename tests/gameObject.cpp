@@ -12,6 +12,11 @@ TEST(GAMEOBJECT, AddChildrenShouldTransformChildrenPositionRelativeToParent)
     GTEST_ASSERT_EQ(children.getPosition().y, 3);
 }
 
+TEST(GAMEOBJECT, shouldFail)
+{
+    GTEST_ASSERT_EQ(true, false);
+}
+
 int test(int argc, char *argv[])
 {
     ::testing::InitGoogleTest(&argc, argv);
