@@ -1,6 +1,7 @@
 #include "SDL_image.h"
 #include "string"
 #include "engine/objects/gameObject.hpp"
+#include "engine/objects/camera.hpp"
 
 GameObject::GameObject()
 {
@@ -97,4 +98,9 @@ void GameObject::addChildren(GameObject *gameObject)
 Point GameObject::getPosition()
 {
     return this->position;
+}
+
+void GameObject::test(Camera *camera)
+{
+    camera->getPosition();
 }

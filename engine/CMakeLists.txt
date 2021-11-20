@@ -11,6 +11,7 @@ include_directories(${SDL2_IMAGE_INCLUDE_DIRS})
 
 add_library(${MODULE_NAME} STATIC
     colliders/hexagonalCollider.cpp
+    objects/camera.cpp
     objects/gameObject.cpp
     objects/textureLoader.cpp
     math/geometryHelpers.cpp

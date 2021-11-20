@@ -5,6 +5,8 @@
 #include "engine/colliders/collider.hpp"
 #include "engine/math/point.hpp"
 
+class Camera;
+
 class GameObject
 {
 public:
@@ -20,6 +22,7 @@ public:
     void addChildren(GameObject *gameObject);
     void setPosition(int x, int y);
     Point getPosition();
+    void test(Camera *camera);
 
 private:
     Point position;
