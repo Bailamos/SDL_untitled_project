@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="1" failures="0" disabled="0" errors="0" time="0.009" timestamp="2021-11-20T23:48:21.297" name="AllTests">
+  <testsuite name="GAMEOBJECT" tests="1" failures="0" disabled="0" skipped="0" errors="0" time="0.004" timestamp="2021-11-20T23:48:21.301">
+    <testcase name="AddChildrenShouldTransformChildrenPositionRelativeToParent" status="run" result="completed" time="0" timestamp="2021-11-20T23:48:21.303" classname="GAMEOBJECT" />
+  </testsuite>
+</testsuites>

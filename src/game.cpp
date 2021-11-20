@@ -4,10 +4,12 @@
 #include "game.hpp"
 #include "entities/map.hpp"
 #include "src/constants.hpp"
+#include "engine/objects/camera.hpp"
 
 void Game::initWorld()
 {
-    GameObject *map = new Map(400, 300, this->textureLoader);
+    mainCamera = new Camera(Point(0, 0), SCREEN_HEIGHT, SCREEN_WIDTH);
+    GameObject *map = new Map(0, 0, this->textureLoader);
     this->gameObjects.push_back(map);
 }
 
@@ -37,6 +39,18 @@ void Game::handleInput()
             case SDLK_q:
                 this->mIsGameRunning = false;
                 break;
+            case SDLK_w:
+                mainCamera->move(0, -10);
+                break;
+            case SDLK_s:
+                mainCamera->move(0, 10);
+                break;
+            case SDLK_a:
+                mainCamera->move(-10, 0);
+                break;
+            case SDLK_d:
+                mainCamera->move(10, 0);
+                break;
             }
         }
     }
@@ -53,7 +67,7 @@ void Game::render()
     SDL_RenderClear(this->renderer);
     for (auto &gameObject : this->gameObjects)
     {
-        gameObject->render(this->renderer);
+        gameObject->render(this->renderer, mainCamera);
     }
     SDL_RenderPresent(this->renderer);
 }

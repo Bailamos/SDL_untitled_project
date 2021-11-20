@@ -40,29 +40,30 @@ void GameObject::onUpdate()
     // TODO;
 }
 
-void GameObject::render(SDL_Renderer *renderer)
+void GameObject::render(SDL_Renderer *renderer, Camera *camera)
 {
     if (this->texture != NULL)
     {
-        SDL_Rect displayRect = getDisplayRect();
+        SDL_Rect displayRect = getDisplayRect(camera);
         SDL_RenderCopy(renderer, this->texture, NULL, &displayRect);
     }
 
-    if (this->collider != NULL)
-    {
-        this->collider->render(renderer);
-    }
+    // if (this->collider != NULL)
+    // {
+    //     this->collider->render(renderer);
+    // }
 
     for (auto child : children)
     {
-        child->render(renderer);
+        child->render(renderer, camera);
     }
 }
 
-SDL_Rect GameObject::getDisplayRect()
+SDL_Rect GameObject::getDisplayRect(Camera *camera)
 {
-    const int top = this->position.y - height / 2;
-    const int left = this->position.x - width / 2;
+    Point worldPostion = camera->worldPositionToCameraPosition(this);
+    const int top = worldPostion.y - height / 2;
+    const int left = worldPostion.x - width / 2;
     return {left, top, width, height};
 }
 
@@ -73,8 +74,8 @@ void GameObject::setCollider(Collider *collider)
 
 void GameObject::setPosition(int x, int y)
 {
-    this->position.x = x;
-    this->position.y = y;
+    Transform::setPosition(x, y);
+
     if (this->collider != NULL)
     {
         this->collider->setPosition(x, y);
@@ -93,14 +94,4 @@ void GameObject::addChildren(GameObject *gameObject)
             children->position.y + this->position.y);
     }
     this->children.push_back(gameObject);
-}
-
-Point GameObject::getPosition()
-{
-    return this->position;
-}
-
-void GameObject::test(Camera *camera)
-{
-    camera->getPosition();
 }

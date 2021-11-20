@@ -1,13 +1,16 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "engine/math/point.hpp"
-#include "engine/objects/gameObject.hpp"
+#include "engine/objects/transform.hpp"
 
-class Camera : public GameObject
+class Point;
+
+class Camera : public Transform
 {
 public:
     Camera(Point position, int height, int width);
+
+    Point worldPositionToCameraPosition(Transform *transform);
 };
 
 #endif

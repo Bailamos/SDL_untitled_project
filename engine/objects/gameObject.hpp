@@ -4,10 +4,11 @@
 #include "vector"
 #include "engine/colliders/collider.hpp"
 #include "engine/math/point.hpp"
+#include "engine/objects/transform.hpp"
 
 class Camera;
 
-class GameObject
+class GameObject : public Transform
 {
 public:
     GameObject();
@@ -16,17 +17,13 @@ public:
     GameObject(int x, int y, int width, int height, SDL_Texture *texture);
     ~GameObject();
     void onUpdate();
-    void render(SDL_Renderer *renderer);
-    SDL_Rect getDisplayRect();
+    void render(SDL_Renderer *renderer, Camera *camera);
+    SDL_Rect getDisplayRect(Camera *camera);
     void setCollider(Collider *collider);
-    void addChildren(GameObject *gameObject);
     void setPosition(int x, int y);
-    Point getPosition();
-    void test(Camera *camera);
+    void addChildren(GameObject *gameObject);
 
 private:
-    Point position;
-    int width, height;
     Collider *collider = NULL;
     SDL_Texture *texture = NULL;
     std::vector<GameObject *> children;
